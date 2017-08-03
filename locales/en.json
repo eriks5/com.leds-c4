@@ -1,0 +1,188 @@
+{
+	"433_generator": {
+		"generic": {
+			"on": "On\u0000",
+			"off": "Off\u0000",
+			"left": "Left\u0000",
+			"middle": "Middle\u0000",
+			"right": "Right\u0000",
+			"up": "Up\u0000",
+			"down": "Down\u0000",
+			"button_pressed": "Button is pressed\u0000",
+			"buttons": {
+				"1": "Button 1\u0000",
+				"2": "Button 2\u0000",
+				"3": "Button 3\u0000",
+				"4": "Button 4\u0000",
+				"5": "Button 5\u0000",
+				"6": "Button 6\u0000",
+				"7": "Button 7\u0000",
+				"8": "Button 8\u0000",
+				"9": "Button 9\u0000",
+				"10": "Button 10\u0000",
+				"11": "Button 11\u0000",
+				"12": "Button 12\u0000",
+				"13": "Button 13\u0000",
+				"14": "Button 14\u0000",
+				"15": "Button 15\u0000",
+				"16": "Button 16\u0000",
+				"A": "Button A\u0000",
+				"B": "Button B\u0000",
+				"C": "Button C\u0000",
+				"D": "Button D\u0000",
+				"E": "Button E\u0000",
+				"F": "Button F\u0000",
+				"G": "Group Button\u0000",
+				"all": "All Button\u0000",
+				"bright": "Bright Button\u0000",
+				"dim": "Dim Button\u0000",
+				"left": "Left Button\u0000",
+				"middle": "Middle Button\u0000",
+				"right": "Right Button\u0000"
+			},
+			"channels": {
+				"1": "Channel 1\u0000",
+				"2": "Channel 2\u0000",
+				"3": "Channel 3\u0000",
+				"4": "Channel 4\u0000",
+				"5": "Channel 5\u0000",
+				"I": "Channel I\u0000",
+				"II": "Channel II\u0000",
+				"III": "Channel III\u0000",
+				"IV": "Channel IV\u0000",
+				"V": "Channel V\u0000",
+				"A": "Channel A\u0000",
+				"B": "Channel B\u0000",
+				"C": "Channel C\u0000",
+				"D": "Channel D\u0000",
+				"E": "Channel E\u0000",
+				"F": "Channel F\u0000"
+			},
+			"units": {
+				"1": "Unit 1\u0000",
+				"2": "Unit 2\u0000",
+				"3": "Unit 3\u0000",
+				"4": "Unit 4\u0000",
+				"5": "Unit 5\u0000",
+				"6": "Unit 6\u0000",
+				"7": "Unit 7\u0000",
+				"8": "Unit 8\u0000",
+				"9": "Unit 9\u0000",
+				"10": "Unit 10\u0000",
+				"11": "Unit 11\u0000",
+				"12": "Unit 12\u0000",
+				"13": "Unit 13\u0000",
+				"14": "Unit 14\u0000",
+				"15": "Unit 15\u0000",
+				"16": "Unit 16\u0000"
+			}
+		},
+		"error": {
+			"device_exists": "This device is already paired with Homey.\u0000",
+			"no_device": "No device set to pair. Please close the pairing wizard and try again.\u0000",
+			"no_settings": "No settings object. Please try again.\u0000",
+			"invalid_device": "The device that was created is invalid. Please remove it and try pairing it again.\u0000",
+			"cannot_register_signal": "Signal could not be registered. Please reset Homey by pulling the power for 10 seconds and try again.\u0000"
+		}
+	},
+	"deviceClasses": {
+		"generic_dipswitch_socket": {
+			"views": {
+				"generic_choice": {
+					"title": "Copy signal from remote or set the dipswitches manually\u0000",
+					"body": "Choose if you want to copy an existing signal from a paired remote or if you want to set the dipswitches of the socket manually.\u0000",
+					"buttons": {
+						"generic_imitate": "Copy a paired remote\u0000",
+						"generic_dipswitch": "Set the dipswitches\u0000"
+					}
+				},
+				"generic_info": {
+					"title": "Locate the dipswitches on your socket\u0000",
+					"body": "Locate the dipswitches on your socket like displayed above, then click next.\u0000"
+				}
+			}
+		},
+		"generic_socket": {
+			"views": {
+				"generic_imitate": {
+					"title": "Copy your remote signal\u0000",
+					"body": "Press the button that is paired to your socket.\u0000"
+				},
+				"generic_test_switch": {
+					"title": "Test your socket\u0000",
+					"body": "Use the switch above to test your socket. Press next to continue.\u0000"
+				},
+				"generic_test_switch_2": {
+					"body": "Use your remote or the switch above to test your socket. Press next to continue.\u0000"
+				}
+			}
+		},
+		"generic_remote": {
+			"views": {
+				"generic_imitate": {
+					"title": "Identify your remote\u0000",
+					"body": "Click a button on your remote to pair it.\u0000"
+				}
+			}
+		},
+		"ceiling_fan": {
+			"views": {
+				"generic_test_switch": {
+					"title": "Test your ceiling fan",
+					"body": "Use the switch above to test your ceiling fan. Press next to continue."
+				},
+				"generic_test_switch_2": {
+					"body": "Use your remote or the switch above to test your ceiling fan. Press next to continue."
+				}
+			},
+			"capabilitiesOptions": {
+				"dim": {
+					"title": "Speed"
+				}
+			}
+		}
+	},
+	"views": {
+		"generic_dipswitch": {
+			"title": "Set dipswitches of device\u0000",
+			"body": "Click on the dipswitches above to put them in the same arrangement as those of your device, then click next.\u0000"
+		},
+		"generic_done": {
+			"title": "Adding device!\u0000"
+		},
+		"generic_test_remote": {
+			"title": "Test your remote\u0000",
+			"body": "Press a random button on your remote or click the button in the image above to test the signal. Press next to continue.\u0000"
+		},
+		"generic_imitate": {
+			"title": "Copy your remote signal\u0000",
+			"body": "Click the button on your remote that is paired to your device.\u0000"
+		},
+		"generic_test_switch": {
+			"title": "Test your device\u0000",
+			"body": "Use the switch above to test your device. Press next to continue.\u0000"
+		},
+		"generic_test_switch_2": {
+			"body": "Use your remote or the switch above to test your device. Press next to continue.\u0000"
+		}
+	},
+	"devices": {
+		"formentera_remote": {
+			"name": "Formentera Remote"
+		},
+		"formentera_fan": {
+			"name": "Formentera Ceiling Fan"
+		}
+	},
+	"command": {
+		"stop": "Stop",
+		"hi": "High speed",
+		"med": "Medium speed",
+		"low": "Low speed",
+		"light": "Toggle light",
+		"stop1h": "Stop after 1 hour",
+		"stop2h": "Stop after 2 hours",
+		"stop4h": "Stop after 4 hours",
+		"stop8h": "Stop after 8 hours"
+	}
+}

@@ -1,0 +1,80 @@
+<script>
+var options = {
+	template: '../lib/pair/choice.html',
+	id: 'generic_choice',
+	title: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.title',
+	body: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.body',
+	buttons: [{
+			name: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.buttons.generic_imitate',
+			view: 'generic_imitate',
+			svg: '#'
+		},
+		{
+			name: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.buttons.generic_dipswitch',
+			view: 'generic_info',
+			svg: '#'
+		}
+	],
+	svgWidth: '80vw',
+	svgHeight: '65vh'
+};
+Homey.setTitle(__(options.title || ''));
+Homey.emit('init', options.id);
+Homey.on('show_view', function(viewId){
+	Homey.showView(viewId);
+});
+Homey.on('close', function(){
+	Homey.close();
+});
+Homey.on('nextView', function(viewsIds){
+	var viewIndex = viewsIds.indexOf(options.id) + 1;
+	if(viewIndex > 0 && viewIndex < viewsIds.length){
+		Homey.showView(viewsIds[viewIndex]);
+	}
+});
+Homey.on('previousView', function(viewsIds){
+	var viewIndex = viewsIds.indexOf(options.id) - 1;
+	if(viewIndex >= 0){
+		Homey.showView(viewsIds[viewIndex]);
+	}
+});
+function nextView(){
+	if(options.next){
+		Homey.nextView();
+	}else{
+		Homey.emit('next');
+	}
+}
+</script>
+
+<link href="../../../assets/433_generator/css/styles.css" rel="stylesheet" type="text/css"/>
+
+<link href="../../../assets/433_generator/css/svg.css" rel="stylesheet" type="text/css"/>
+
+<script src="../../../assets/433_generator/js/svghighlighter.js" type="text/javascript"></script>
+
+<div class="centered-container">
+	<div id="choice-button-container"></div>
+	<div id="body"><span class="content"></span></div>
+</div>
+
+<script>
+	var idPrefix = '[data-id="' + options.id + '"] ';
+	$(idPrefix + '#body > span').html(__(options.body));
+	var $imageContainer = $(idPrefix + '#image-container');
+	$imageContainer.css('width', options.svgWidth).css('height', options.svgHeight);
+	var $buttonContainer = $(idPrefix + '#choice-button-container');
+
+	options.buttons.forEach(function (button) {
+		$buttonContainer.append(
+			$('<div>').addClass('button-container')
+				.html(button.svg)
+				.append(
+					$('<button>')
+						.addClass('button')
+						.html(__(button.name))
+				)
+				.on('click', Homey.showView.bind(Homey, button.view))
+		);
+	});
+</script>

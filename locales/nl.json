@@ -1,0 +1,188 @@
+{
+	"deviceClasses": {
+		"generic_dipswitch_socket": {
+			"views": {
+				"generic_choice": {
+					"title": "Kopieer je afstandsbediening of stel de dipswitches handmatig in\u0000",
+					"body": "Kies of je het signaal van een gekoppelde afstandsbediening wil kopiëren of dat je de dipswitches handmatig wil instellen.\u0000",
+					"buttons": {
+						"generic_imitate": "Kopieer je afstandsbediening\u0000",
+						"generic_dipswitch": "Stel de dipswitches in\u0000"
+					}
+				},
+				"generic_info": {
+					"title": "Vind de dipswitches op je contactdoos\u0000",
+					"body": "Vind de dipswitches op je contactdoos zoals hierboven aangegeven, klik daarna op volgende.\u0000"
+				}
+			}
+		},
+		"generic_socket": {
+			"views": {
+				"generic_imitate": {
+					"title": "Kopieer het signaal van je afstandsbediening\u0000",
+					"body": "Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is.\u0000"
+				},
+				"generic_test_switch": {
+					"title": "Test je contactdoos\u0000",
+					"body": "Gebruik de bovenstaande knop om je contactdoos te testen. Klik op volgende om verder te gaan.\u0000"
+				},
+				"generic_test_switch_2": {
+					"body": "Gebruik je afstandsbediening of de bovenstaande knop om je contactdoos te testen. Klik op volgende om verder te gaan.\u0000"
+				}
+			}
+		},
+		"generic_remote": {
+			"views": {
+				"generic_imitate": {
+					"title": "Identificeer je afstandsbediening\u0000",
+					"body": "Klik op een willekeurige knop op je afstandsbediening om hem te koppelen.\u0000"
+				}
+			}
+		},
+		"ceiling_fan": {
+			"views": {
+				"generic_test_switch": {
+					"title": "Test je plafondventilator",
+					"body": "Gebruik de bovenstaande knop om je plafondventilator te testen. Klik op volgende om verder te gaan."
+				},
+				"generic_test_switch_2": {
+					"body": "Gebruik je afstandsbediening of de bovenstaande knop om je plafondventilator te testen. Klik op volgende om verder te gaan."
+				}
+			},
+			"capabilitiesOptions": {
+				"dim": {
+					"title": "Snelheid"
+				}
+			}
+		}
+	},
+	"views": {
+		"generic_dipswitch": {
+			"title": "Stel de dipswitches van je apparaat in\u0000",
+			"body": "Klik op de bovenstaande dipswitches om ze gelijk aan de dipswitches van je apparaat in te stellen, klik daarna op volgende.\u0000"
+		},
+		"generic_done": {
+			"title": "Apparaat wordt toegevoegd!\u0000"
+		},
+		"generic_test_remote": {
+			"title": "Test je apparaat\u0000",
+			"body": "Druk op een willekeurige knop op je afstandsbediening of op de knoppen in het bovenstaande plaatje om het signaal te testen. Klik op volgende om verder te gaan.\u0000"
+		},
+		"generic_imitate": {
+			"title": "Kopieer het signaal van je afstandsbediening\u0000",
+			"body": "Druk op de knop op je afstandsbediening waarop je apparaat geprogrammeerd is.\u0000"
+		},
+		"generic_test_switch": {
+			"title": "Test je apparaat\u0000",
+			"body": "Gebruik te bovenstaande switch om je apparaat te testen. Klik op volgende om verder te gaan.\u0000"
+		},
+		"generic_test_switch_2": {
+			"body": "Gebruik je afstandsbediening of de bovenstaande switch om je apparaat te testen. Klik op volgende om verder te gaan.\u0000"
+		}
+	},
+	"433_generator": {
+		"generic": {
+			"button_pressed": "Knop is ingedrukt\u0000",
+			"on": "Aan\u0000",
+			"off": "Uit\u0000",
+			"left": "Links\u0000",
+			"middle": "Midden\u0000",
+			"right": "Rechts\u0000",
+			"up": "Up\u0000",
+			"down": "Down\u0000",
+			"buttons": {
+				"1": "Knop 1\u0000",
+				"2": "Knop 2\u0000",
+				"3": "Knop 3\u0000",
+				"4": "Knop 4\u0000",
+				"5": "Knop 5\u0000",
+				"6": "Knop 6\u0000",
+				"7": "Knop 7\u0000",
+				"8": "Knop 8\u0000",
+				"9": "Knop 9\u0000",
+				"10": "Knop 10\u0000",
+				"11": "Knop 11\u0000",
+				"12": "Knop 12\u0000",
+				"13": "Knop 13\u0000",
+				"14": "Knop 14\u0000",
+				"15": "Knop 15\u0000",
+				"16": "Knop 16\u0000",
+				"A": "Knop A\u0000",
+				"B": "Knop B\u0000",
+				"C": "Knop C\u0000",
+				"D": "Knop D\u0000",
+				"E": "Knop E\u0000",
+				"F": "Knop F\u0000",
+				"G": "Groep Knop\u0000",
+				"all": "All Knop\u0000",
+				"bright": "Fel Knop\u0000",
+				"dim": "Gedimt Knop\u0000",
+				"left": "Linker Knop\u0000",
+				"middle": "Middelste Knop\u0000",
+				"right": "Rechter Knop\u0000"
+			},
+			"channels": {
+				"1": "Kanaal 1\u0000",
+				"2": "Kanaal 2\u0000",
+				"3": "Kanaal 3\u0000",
+				"4": "Kanaal 4\u0000",
+				"5": "Kanaal 5\u0000",
+				"I": "Kanaal I\u0000",
+				"II": "Kanaal II\u0000",
+				"III": "Kanaal III\u0000",
+				"IV": "Kanaal IV\u0000",
+				"V": "Kanaal V\u0000",
+				"A": "Kanaal A\u0000",
+				"B": "Kanaal B\u0000",
+				"C": "Kanaal C\u0000",
+				"D": "Kanaal D\u0000",
+				"E": "Kanaal E\u0000",
+				"F": "Kanaal F\u0000"
+			},
+			"units": {
+				"1": "Unit 1\u0000",
+				"2": "Unit 2\u0000",
+				"3": "Unit 3\u0000",
+				"4": "Unit 4\u0000",
+				"5": "Unit 5\u0000",
+				"6": "Unit 6\u0000",
+				"7": "Unit 7\u0000",
+				"8": "Unit 8\u0000",
+				"9": "Unit 9\u0000",
+				"10": "Unit 10\u0000",
+				"11": "Unit 11\u0000",
+				"12": "Unit 12\u0000",
+				"13": "Unit 13\u0000",
+				"14": "Unit 14\u0000",
+				"15": "Unit 15\u0000",
+				"16": "Unit 16\u0000"
+			}
+		},
+		"error": {
+			"device_exists": "Apparaat is al gekoppeld met Homey.\u0000",
+			"no_device": "Er is geen apparaat ingesteld. Sluit de pairing wizard en probeer opnieuw.\u0000",
+			"no_settings": "Geen instelling object. Probeer aub opnieuw.\u0000",
+			"invalid_device": "Het apparaat dat is aangemaakt is incorrect. Verwijder dit apparaat en probeer opnieuw.\u0000",
+			"cannot_register_signal": "Signaal kon niet geregistreerd worden. Reset Homey aub door de stroom voor 10 seconden te onderbreken en probeer vervolgens opnieuw.\u0000"
+		}
+	},
+	"devices": {
+		"formentera_remote": {
+			"name": "Formentera Afstandsbediening"
+		},
+		"formentera_fan": {
+			"name": "Formentera Ventilator"
+		}
+	},
+	"command": {
+		"stop": "Stop",
+		"hi": "Hoogste snelheid",
+		"med": "Middelste snelheid",
+		"low": "Laagste snelheid",
+		"light": "Licht aan/uit",
+		"stop1h": "Stop over 1 uur",
+		"stop2h": "Stop over 2 uur",
+		"stop4h": "Stop over 4 uur",
+		"stop8h": "Stop over 8 uur"
+	}
+}

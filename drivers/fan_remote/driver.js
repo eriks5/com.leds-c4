@@ -11,7 +11,7 @@ const config = {
 					body: 'deviceClasses.generic_remote.views.generic_imitate.body',
 					prepend: [],
 					append: [],
-					svg: '../../433_generator/assets/formentera_remote/pair.svg',
+					svg: '../../433_generator/assets/fan_remote/pair.svg',
 					svgWidth: '80vw',
 					svgHeight: '70vh',
 					initWithDeviceData: false,
@@ -28,7 +28,7 @@ const config = {
 			{
 				template: '../lib/pair/test_remote.html',
 				options: {
-					svg: '../../433_generator/assets/formentera_remote/icon.svg',
+					svg: '../../433_generator/assets/fan_remote/icon.svg',
 					prepend: [],
 					append: [],
 					title: 'views.generic_test_remote.title',
@@ -60,11 +60,11 @@ const config = {
 		]
 	},
 	images: {},
-	id: 'formentera_remote',
+	id: 'fan_remote',
 	signal: 'pt2260',
-	driver: '../../433_generator/drivers/formentera/driver.js',
+	driver: '../../433_generator/drivers/fan_control/driver.js',
 	triggers: [{
-		id: 'formentera_remote:received',
+		id: 'fan_remote:received',
 		title: '433_generator.generic.button_pressed',
 		args: [{
 				name: 'command',
@@ -110,13 +110,13 @@ const config = {
 			{
 				name: 'device',
 				type: 'device',
-				filter: 'driver_id=formentera_remote'
+				filter: 'driver_id=fan_remote'
 			}
 		]
 	}],
 	logLevel: 2,
-	name: 'devices.formentera_remote.name',
-	icon: '../../433_generator/assets/formentera_remote/icon.svg'
+	name: 'devices.fan_remote.name',
+	icon: '../../433_generator/assets/fan_remote/icon.svg'
 };
 const Driver = require(config.driver);
 const driver = new Driver(config);

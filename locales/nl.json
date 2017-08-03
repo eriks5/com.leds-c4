@@ -167,11 +167,11 @@
 		}
 	},
 	"devices": {
-		"formentera_remote": {
-			"name": "Formentera Afstandsbediening"
+		"fan_remote": {
+			"name": "Afstandsbediening"
 		},
-		"formentera_fan": {
-			"name": "Formentera Ventilator"
+		"ceiling_fan": {
+			"name": "Plafondventilator"
 		}
 	},
 	"command": {

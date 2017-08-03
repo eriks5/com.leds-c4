@@ -167,11 +167,11 @@
 		}
 	},
 	"devices": {
-		"formentera_remote": {
-			"name": "Formentera Remote"
+		"fan_remote": {
+			"name": "Remote"
 		},
-		"formentera_fan": {
-			"name": "Formentera Ceiling Fan"
+		"ceiling_fan": {
+			"name": "Ceiling Fan"
 		}
 	},
 	"command": {

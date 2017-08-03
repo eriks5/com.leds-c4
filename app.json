@@ -51,10 +51,10 @@
   },
   "drivers": [
     {
-      "id": "formentera_fan",
+      "id": "ceiling_fan",
       "name": {
-        "en": "Formentera Ceiling Fan",
-        "nl": "Formentera Ventilator"
+        "en": "Ceiling Fan",
+        "nl": "Plafondventilator"
       },
       "class": "fan",
       "capabilities": [
@@ -108,10 +108,10 @@
       ]
     },
     {
-      "id": "formentera_remote",
+      "id": "fan_remote",
       "name": {
-        "en": "Formentera Remote",
-        "nl": "Formentera Afstandsbediening"
+        "en": "Remote",
+        "nl": "Afstandsbediening"
       },
       "class": "other",
       "capabilities": [],
@@ -138,7 +138,7 @@
   "flow": {
     "triggers": [
       {
-        "id": "formentera_fan:received",
+        "id": "ceiling_fan:received",
         "title": {
           "en": "Button is pressed\u0000",
           "nl": "Knop is ingedrukt\u0000"
@@ -216,12 +216,12 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=formentera_fan"
+            "filter": "driver_id=ceiling_fan"
           }
         ]
       },
       {
-        "id": "formentera_remote:received",
+        "id": "fan_remote:received",
         "title": {
           "en": "Button is pressed\u0000",
           "nl": "Knop is ingedrukt\u0000"
@@ -299,7 +299,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=formentera_remote"
+            "filter": "driver_id=fan_remote"
           }
         ]
       }
@@ -307,7 +307,7 @@
     "conditions": [],
     "actions": [
       {
-        "id": "formentera_fan:send",
+        "id": "ceiling_fan:send",
         "title": {
           "en": "Send command",
           "nl": "Stuur commando"
@@ -385,7 +385,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=formentera_fan"
+            "filter": "driver_id=ceiling_fan"
           }
         ]
       }

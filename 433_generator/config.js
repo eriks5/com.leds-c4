@@ -3,14 +3,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const formenteraCommandLabels = require('./drivers/formentera/commands').labels;
+const fanCommandLabels = require('./drivers/fan_control/commands').labels;
 
 module.exports = {
   deviceClasses: {
     pt2260: {
       signal: require('./drivers/pt2260/signal.js')
     },
-    formentera_triggers: {
+    fan_triggers: {
       triggers: [
         {
           id: 'received',
@@ -19,13 +19,13 @@ module.exports = {
             {
               name: 'command',
               type: 'dropdown',
-              values: formenteraCommandLabels
+              values: fanCommandLabels
             }
           ]
         }
       ]
     },
-    formentera_actions: {
+    fan_actions: {
       actions: [
         {
           id: 'send',
@@ -37,19 +37,19 @@ module.exports = {
             {
               name: 'command',
               type: 'dropdown',
-              values: formenteraCommandLabels
+              values: fanCommandLabels
             }
           ]
         }
       ]
     },
-    formentera: {
-      driver: './drivers/formentera/driver.js'
+    fan_control: {
+      driver: './drivers/fan_control/driver.js'
     },
-    dipswitch_remote: {
+    generic_fan_remote: {
       extends: ['generic_remote', 'pt2260'],
     },
-    ceiling_fan: {
+    generic_ceiling_fan: {
       extends: ['generic_dipswitch_switch', 'pt2260'],
       class: 'fan',
       capabilities: ['onoff', 'dim'],
@@ -67,11 +67,11 @@ module.exports = {
             buttons: [{
               name: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.buttons.generic_imitate',
               view: 'generic_imitate',
-              svg: fs.readFileSync(path.join(__dirname, './assets/formentera_remote/icon.svg')).toString(),
+              svg: fs.readFileSync(path.join(__dirname, './assets/fan_remote/icon.svg')).toString(),
             }, {
               name: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.buttons.generic_dipswitch',
               view: 'generic_info',
-              svg: fs.readFileSync(path.join(__dirname, './assets/formentera_remote/dipswitch.svg')).toString(),
+              svg: fs.readFileSync(path.join(__dirname, './assets/ceiling_fan/dipswitch.svg')).toString(),
             }],
           },
           generic_dipswitch: {
@@ -79,12 +79,12 @@ module.exports = {
           },
           generic_test_switch: {
             title: 'deviceClasses.ceiling_fan.views.generic_test_switch.title',
-            svg: './assets/formentera_fan/test.svg',
+            svg: './assets/ceiling_fan/test.svg',
             body: 'deviceClasses.ceiling_fan.views.generic_test_switch.body',
           },
           generic_test_switch_2: {
             title: 'deviceClasses.ceiling_fan.views.generic_test_switch.title',
-            svg: './assets/formentera_fan/test.svg',
+            svg: './assets/ceiling_fan/test.svg',
             body: 'deviceClasses.ceiling_fan.views.generic_test_switch_2.body',
           },
         }
@@ -92,34 +92,34 @@ module.exports = {
     }
   },
   devices: {
-    formentera_fan: {
+    ceiling_fan: {
       logLevel: 2,
-      extends: ['ceiling_fan', 'formentera', 'formentera_triggers', 'formentera_actions'],
-      name: 'devices.formentera_fan.name',
-      icon: './assets/formentera_fan/icon.svg',
+      extends: ['generic_ceiling_fan', 'fan_control', 'fan_triggers', 'fan_actions'],
+      name: 'devices.ceiling_fan.name',
+      icon: './assets/ceiling_fan/icon.svg',
       pair: {
         viewOptions: {
           generic_info: {
-            svg: './assets/formentera_remote/dipswitch.svg'
+            svg: './assets/ceiling_fan/dipswitch.svg'
           },
           generic_imitate: {
-            svg: './assets/formentera_remote/icon.svg'
+            svg: './assets/fan_remote/pair.svg'
           },
         }
       },
     },
-    formentera_remote: {
+    fan_remote: {
       logLevel: 2,
-      extends: ['dipswitch_remote', 'formentera', 'formentera_triggers'],
-      name: 'devices.formentera_remote.name',
-      icon: './assets/formentera_remote/icon.svg',
+      extends: ['generic_fan_remote', 'fan_control', 'fan_triggers'],
+      name: 'devices.fan_remote.name',
+      icon: './assets/fan_remote/icon.svg',
       pair: {
         viewOptions: {
           generic_imitate: {
-            svg: './assets/formentera_remote/pair.svg'
+            svg: './assets/fan_remote/pair.svg'
           },
           generic_test_remote: {
-            svg: './assets/formentera_remote/icon.svg'
+            svg: './assets/fan_remote/icon.svg'
           }
         }
       }

@@ -164,7 +164,10 @@ module.exports = {
 					}
 				]
 			},
-			images: {},
+			images: {
+				small: '../433_generator/assets/ceiling_fan/images/small.jpg',
+				large: '../433_generator/assets/ceiling_fan/images/large.jpg'
+			},
 			id: 'ceiling_fan',
 			class: 'fan',
 			signal: 'pt2260',
@@ -345,7 +348,10 @@ module.exports = {
 					}
 				]
 			},
-			images: {},
+			images: {
+				small: '../433_generator/assets/fan_remote/images/small.jpg',
+				large: '../433_generator/assets/fan_remote/images/large.jpg'
+			},
 			id: 'fan_remote',
 			signal: 'pt2260',
 			driver: '../433_generator/drivers/fan_control/driver.js',

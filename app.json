@@ -7,6 +7,10 @@
   "description": {
     "en": "Homey support for LEDS-C4 devices."
   },
+  "images": {
+    "large": "./assets/images/large.jpg",
+    "small": "./assets/images/small.jpg"
+  },
   "category": "climate",
   "version": "0.0.1",
   "compatibility": ">=1.3",
@@ -61,7 +65,10 @@
         "onoff",
         "dim"
       ],
-      "images": {},
+      "images": {
+        "small": "./433_generator/assets/ceiling_fan/images/small.jpg",
+        "large": "./433_generator/assets/ceiling_fan/images/large.jpg"
+      },
       "pair": [
         {
           "id": "generic_choice",
@@ -115,7 +122,10 @@
       },
       "class": "other",
       "capabilities": [],
-      "images": {},
+      "images": {
+        "small": "./433_generator/assets/fan_remote/images/small.jpg",
+        "large": "./433_generator/assets/fan_remote/images/large.jpg"
+      },
       "pair": [
         {
           "id": "generic_imitate",

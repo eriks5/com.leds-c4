@@ -59,7 +59,10 @@ const config = {
 			}
 		]
 	},
-	images: {},
+	images: {
+		small: '../../433_generator/assets/fan_remote/images/small.jpg',
+		large: '../../433_generator/assets/fan_remote/images/large.jpg'
+	},
 	id: 'fan_remote',
 	signal: 'pt2260',
 	driver: '../../433_generator/drivers/fan_control/driver.js',

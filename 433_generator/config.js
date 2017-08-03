@@ -97,6 +97,10 @@ module.exports = {
       extends: ['generic_ceiling_fan', 'fan_control', 'fan_triggers', 'fan_actions'],
       name: 'devices.ceiling_fan.name',
       icon: './assets/ceiling_fan/icon.svg',
+      images: {
+        small: './assets/ceiling_fan/images/small.jpg',
+        large: './assets/ceiling_fan/images/large.jpg',
+      },
       pair: {
         viewOptions: {
           generic_info: {
@@ -113,6 +117,10 @@ module.exports = {
       extends: ['generic_fan_remote', 'fan_control', 'fan_triggers'],
       name: 'devices.fan_remote.name',
       icon: './assets/fan_remote/icon.svg',
+      images: {
+        small: './assets/fan_remote/images/small.jpg',
+        large: './assets/fan_remote/images/large.jpg',
+      },
       pair: {
         viewOptions: {
           generic_imitate: {

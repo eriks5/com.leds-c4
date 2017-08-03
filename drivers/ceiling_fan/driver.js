@@ -162,7 +162,10 @@ const config = {
 			}
 		]
 	},
-	images: {},
+	images: {
+		small: '../../433_generator/assets/ceiling_fan/images/small.jpg',
+		large: '../../433_generator/assets/ceiling_fan/images/large.jpg'
+	},
 	id: 'ceiling_fan',
 	class: 'fan',
 	signal: 'pt2260',

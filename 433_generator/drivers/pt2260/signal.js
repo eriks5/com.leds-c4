@@ -9,7 +9,7 @@ module.exports ={
   ],
   interval: 2500, // Time between repetitions
   repetitions: 5,
-  sensitivity: 0.7,
+  sensitivity: 0.5,
   minimalLength: 12,
   maximalLength: 12,
 };

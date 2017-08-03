@@ -93,7 +93,7 @@ module.exports = {
   },
   devices: {
     ceiling_fan: {
-      logLevel: 2,
+      // logLevel: 2,
       extends: ['generic_ceiling_fan', 'fan_control', 'fan_triggers', 'fan_actions'],
       name: 'devices.ceiling_fan.name',
       icon: './assets/ceiling_fan/icon.svg',
@@ -113,7 +113,7 @@ module.exports = {
       },
     },
     fan_remote: {
-      logLevel: 2,
+      // logLevel: 2,
       extends: ['generic_fan_remote', 'fan_control', 'fan_triggers'],
       name: 'devices.fan_remote.name',
       icon: './assets/fan_remote/icon.svg',

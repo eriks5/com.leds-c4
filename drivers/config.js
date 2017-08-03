@@ -285,7 +285,6 @@ module.exports = {
 					}
 				]
 			}],
-			logLevel: 2,
 			name: 'devices.ceiling_fan.name',
 			icon: '../433_generator/assets/ceiling_fan/icon.svg'
 		},
@@ -406,7 +405,6 @@ module.exports = {
 					}
 				]
 			}],
-			logLevel: 2,
 			name: 'devices.fan_remote.name',
 			icon: '../433_generator/assets/fan_remote/icon.svg'
 		}

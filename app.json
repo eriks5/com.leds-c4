@@ -16,7 +16,7 @@
   "compatibility": ">=1.3",
   "author": {
     "name": "Erik Scheffers",
-    "email": "erik+athom@scheffers.org"
+    "email": "erik@scheffers.org"
   },
   "signals": {
     "433": {

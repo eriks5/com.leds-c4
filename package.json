@@ -1,0 +1,13 @@
+{
+  "name": "com.leds-c4",
+  "version": "1.0.0",
+  "description": "Homey support for LEDS-C4 devices.",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Erik Scheffers <erik@scheffers.org>",
+  "license": "ISC"
+}

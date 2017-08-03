@@ -145,7 +145,7 @@
         },
         "args": [
           {
-            "name": "command.name",
+            "name": "command",
             "type": "dropdown",
             "values": [
               {
@@ -228,7 +228,7 @@
         },
         "args": [
           {
-            "name": "command.name",
+            "name": "command",
             "type": "dropdown",
             "values": [
               {
@@ -314,7 +314,7 @@
         },
         "args": [
           {
-            "name": "command.name",
+            "name": "command",
             "type": "dropdown",
             "values": [
               {

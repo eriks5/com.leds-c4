@@ -114,6 +114,7 @@ module.exports = class PT2260 extends DefaultDriver {
         {
           id,
           address,
+          lastCommand: command
         }
       );
 
@@ -128,10 +129,7 @@ module.exports = class PT2260 extends DefaultDriver {
     this.logger.silly("PT2260:dataToPayload(data)", data);
 
     if (data && this.isValidAddress(data.address)) {
-      const command = this.isValidCommand(data['command.name'])
-        ? data['command.name']
-        : this.stateToCommand(data);
-
+      const command = this.isValidCommand(data.command) ? data.command : this.stateToCommand(data);
       if (command){
         const payload = this.bitStringToBitArray(data.address).concat(this.bitStringToBitArray(command));
         this.logger.debug('Data -> payload', data, '=>', payload);

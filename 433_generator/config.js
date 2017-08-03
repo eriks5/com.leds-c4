@@ -1,5 +1,8 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+
 const formenteraCommandLabels = require('./drivers/formentera/commands').labels;
 
 module.exports = {
@@ -14,7 +17,7 @@ module.exports = {
           title: '433_generator.generic.button_pressed',
           args: [
             {
-              name: 'command.name',
+              name: 'command',
               type: 'dropdown',
               values: formenteraCommandLabels
             }
@@ -32,7 +35,7 @@ module.exports = {
           },
           args: [
             {
-              name: 'command.name',
+              name: 'command',
               type: 'dropdown',
               values: formenteraCommandLabels
             }
@@ -64,13 +67,11 @@ module.exports = {
             buttons: [{
               name: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.buttons.generic_imitate',
               view: 'generic_imitate',
-              svg: '#'
-              // svg: fs.readFileSync(path.join(__dirname, './assets/AB440R/icon.svg')).toString(),
+              svg: fs.readFileSync(path.join(__dirname, './assets/formentera_remote/icon.svg')).toString(),
             }, {
               name: 'deviceClasses.generic_dipswitch_socket.views.generic_choice.buttons.generic_dipswitch',
               view: 'generic_info',
-              svg: '#'
-              // svg: fs.readFileSync(path.join(__dirname, './assets/AB440SC/dipswitches.svg')).toString(),
+              svg: fs.readFileSync(path.join(__dirname, './assets/formentera_remote/dipswitch.svg')).toString(),
             }],
           },
           generic_dipswitch: {
@@ -78,10 +79,12 @@ module.exports = {
           },
           generic_test_switch: {
             title: 'deviceClasses.ceiling_fan.views.generic_test_switch.title',
+            svg: './assets/formentera_fan/test.svg',
             body: 'deviceClasses.ceiling_fan.views.generic_test_switch.body',
           },
           generic_test_switch_2: {
             title: 'deviceClasses.ceiling_fan.views.generic_test_switch.title',
+            svg: './assets/formentera_fan/test.svg',
             body: 'deviceClasses.ceiling_fan.views.generic_test_switch_2.body',
           },
         }
@@ -93,14 +96,14 @@ module.exports = {
       logLevel: 2,
       extends: ['ceiling_fan', 'formentera', 'formentera_triggers', 'formentera_actions'],
       name: 'devices.formentera_fan.name',
-      icon: '#',
+      icon: './assets/formentera_fan/icon.svg',
       pair: {
         viewOptions: {
           generic_info: {
-            svg: '#'
+            svg: './assets/formentera_remote/dipswitch.svg'
           },
           generic_imitate: {
-            svg: '#'
+            svg: './assets/formentera_remote/icon.svg'
           },
         }
       },
@@ -109,14 +112,14 @@ module.exports = {
       logLevel: 2,
       extends: ['dipswitch_remote', 'formentera', 'formentera_triggers'],
       name: 'devices.formentera_remote.name',
-      icon: '#',
+      icon: './assets/formentera_remote/icon.svg',
       pair: {
         viewOptions: {
           generic_imitate: {
-            svg: '#'
+            svg: './assets/formentera_remote/pair.svg'
           },
           generic_test_remote: {
-            svg: '#'
+            svg: './assets/formentera_remote/icon.svg'
           }
         }
       }

@@ -11,7 +11,7 @@ const config = {
 					body: 'deviceClasses.generic_remote.views.generic_imitate.body',
 					prepend: [],
 					append: [],
-					svg: '#',
+					svg: '../../433_generator/assets/formentera_remote/pair.svg',
 					svgWidth: '80vw',
 					svgHeight: '70vh',
 					initWithDeviceData: false,
@@ -28,7 +28,7 @@ const config = {
 			{
 				template: '../lib/pair/test_remote.html',
 				options: {
-					svg: '#',
+					svg: '../../433_generator/assets/formentera_remote/icon.svg',
 					prepend: [],
 					append: [],
 					title: 'views.generic_test_remote.title',
@@ -67,7 +67,7 @@ const config = {
 		id: 'formentera_remote:received',
 		title: '433_generator.generic.button_pressed',
 		args: [{
-				name: 'command.name',
+				name: 'command',
 				type: 'dropdown',
 				values: [{
 						id: '0010',
@@ -116,7 +116,7 @@ const config = {
 	}],
 	logLevel: 2,
 	name: 'devices.formentera_remote.name',
-	icon: '#'
+	icon: '../../433_generator/assets/formentera_remote/icon.svg'
 };
 const Driver = require(config.driver);
 const driver = new Driver(config);

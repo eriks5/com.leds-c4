@@ -1,6 +1,6 @@
 'use strict';
 
-// Driver to encode and decode addresses and commands for the Formentera ceiling fan
+// Driver to control LEDS-C4 ceiling fans
 
 const PT2260 = require('../pt2260/driver');
 const commands = require('./commands');
@@ -13,7 +13,7 @@ const COMMAND_STATE_MAP = {
   [commands.HI]: {state: 1, dim: 1.0},
 };
 
-module.exports = class Formentera extends PT2260 {
+module.exports = class FanControl extends PT2260 {
   constructor(config) {
     super(config);
     this.on('frame', this.updateState.bind(this));
@@ -22,17 +22,17 @@ module.exports = class Formentera extends PT2260 {
   }
 
   isValidAddress(address){
-    this.logger.silly("Formentera:isValidAddress(address)", address);
+    this.logger.silly("FanControl:isValidAddress(address)", address);
     return address.match(ADDRESS_RE) !== null;
   }
 
   isValidCommand(command){
-    this.logger.silly("Formentera:isValidCommand(command)", command);
+    this.logger.silly("FanControl:isValidCommand(command)", command);
     return commands.isValid(command);
   }
 
   getAddressFromDipSwitches(dipswitches){
-    this.logger.silly("Formentera:getAddressFromDipSwitches(dipswitches)", dipswitches);
+    this.logger.silly("FanControl:getAddressFromDipSwitches(dipswitches)", dipswitches);
     if (dipswitches.length >= 4){
       return dipswitches.slice(0, 4).map(sw => sw ? '0' : '2').join('') + '2222';
     }
@@ -41,7 +41,7 @@ module.exports = class Formentera extends PT2260 {
   }
 
   getInitialState(){
-    this.logger.silly("Formentera:getInitialState()");
+    this.logger.silly("FanControl:getInitialState()");
     return {
       state: 0,
       dim: 0
@@ -49,7 +49,7 @@ module.exports = class Formentera extends PT2260 {
   }
 
   stateToCommand(data){
-    this.logger.silly("Formentera:stateToCommand(data)", data);
+    this.logger.silly("FanControl:stateToCommand(data)", data);
 
     let command = null;
     if (typeof data.state !== "undefined"){
@@ -77,19 +77,19 @@ module.exports = class Formentera extends PT2260 {
   }
 
   commandToState(command){
-    this.logger.silly("Formentera:commandToState(command)", command);
+    this.logger.silly("FanControl:commandToState(command)", command);
     const data = COMMAND_STATE_MAP[command] || {};
     this.logger.debug("Command -> data:", command, '=>', data);
     return data;
   }
 
   updateState(frame) {
-    this.logger.silly("Formentera:updateState(frame)", frame);
+    this.logger.silly("FanControl:updateState(frame)", frame);
     this.setState(frame.id, Object.assign({}, this.getState(frame.id), frame));
   }
 
   updateRealtime(device, state, oldState) {
-    this.logger.silly("Formentera:updateRealtime(device, state, oldState)", device, state, oldState);
+    this.logger.silly("FanControl:updateRealtime(device, state, oldState)", device, state, oldState);
     if (Boolean(Number(state.state)) !== Boolean(Number(oldState.state))) {
       this.realtime(device, 'onoff', Boolean(Number(state.state)));
     }
@@ -99,13 +99,15 @@ module.exports = class Formentera extends PT2260 {
   }
 
   getExports() {
-    this.logger.silly("Formentera:getExports()");
+    this.logger.silly("FanControl:getExports()");
+
     const exports = super.getExports();
     exports.capabilities = exports.capabilities || {};
+
     exports.capabilities.onoff = {
       get: (device, callback) => callback(null, Boolean(Number(this.getState(device).state))),
       set: (device, onoff, callback) => {
-        this.logger.silly("Formentera.capabilities.onoff.set(device, onoff)", device, onoff);
+        this.logger.silly("FanControl.capabilities.onoff.set(device, onoff)", device, onoff);
 
         const state = {
           state: onoff ? 1 : 0,
@@ -118,10 +120,11 @@ module.exports = class Formentera extends PT2260 {
         this.send(device, state, () => callback(null, onoff))
       }
     };
+
     exports.capabilities.dim = {
       get: (device, callback) => callback(null, Number(this.getState(device).dim)),
       set: (device, dim, callback) => {
-        this.logger.silly("Formentera.capabilities.onoff.dim(device, dim)", device, dim);
+        this.logger.silly("FanControl.capabilities.dim.set(device, dim)", device, dim);
 
         const state = {
           state: this.getState(device).state || 0,
@@ -134,6 +137,7 @@ module.exports = class Formentera extends PT2260 {
         this.send(device, state, () => callback(null, dim))
       }
     };
+
     return exports;
   }
 };

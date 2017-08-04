@@ -53,14 +53,14 @@ module.exports = {
       extends: ['generic_dipswitch_switch', 'pt2260'],
       class: 'fan',
       capabilities: ['onoff', 'dim'],
-      capabilitiesOptions: {
-        dim: {
-          decimals: 1,
-          min: 0,
-          max: 1,
-          title: 'deviceClasses.ceiling_fan.capabilitiesOptions.dim.title'
-        }
-      },
+      // capabilitiesOptions: {    // capabilitiesOptions are not supported by the 433 generator
+      //   dim: {
+      //     decimals: 1,
+      //     min: 0,
+      //     max: 1,
+      //     title: 'deviceClasses.ceiling_fan.capabilitiesOptions.dim.title'
+      //   }
+      // },
       pair: {
         viewOptions: {
           generic_choice: {

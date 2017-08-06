@@ -5,7 +5,8 @@
     "en": "LEDS-C4"
   },
   "description": {
-    "en": "Homey support for LEDS-C4 devices."
+    "en": "LEDS-C4 ceiling fans",
+    "nl": "LEDS-C4 plafondventilatoren"
   },
   "images": {
     "large": "./assets/images/large.jpg",

@@ -1,7 +1,7 @@
 {
   "name": "com.leds-c4",
-  "version": "1.0.0",
-  "description": "Homey support for LEDS-C4 devices.",
+  "version": "1.1.0",
+  "description": "LEDS-C4 ceiling fans",
   "main": "app.js",
   "dependencies": {},
   "devDependencies": {

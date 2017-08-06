@@ -275,7 +275,6 @@ const config = {
 			}
 		]
 	}],
-	logLevel: 2,
 	name: 'devices.ceiling_fan.name',
 	icon: '../../433_generator/assets/ceiling_fan/icon.svg'
 };

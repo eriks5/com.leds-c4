@@ -14,7 +14,21 @@ const appConfigPath = path.join(__dirname, 'app.json');
 const appConfig = fse.readJsonSync(appConfigPath);
 
 appConfig.drivers.forEach(driver => {
-  if (driver.capabilities.indexOf("dim") >= 0){
+  const hasDim = driver.capabilities.indexOf("dim") >= 0;
+  const hasLight = driver.capabilities.indexOf("button.light") >= 0;
+
+  if (hasDim || hasLight){
+    driver.mobile = {
+      components: [
+        {
+          id: "icon",
+          capabilities: [ "onoff" ]
+        }
+      ]
+    }
+  }
+
+  if (hasDim){
     driver.capabilitiesOptions = Object.assign(
       driver.capabilitiesOptions || {},
       {
@@ -23,29 +37,23 @@ appConfig.drivers.forEach(driver => {
             en: "Speed",
             nl: "Snelheid"
           },
-          step: 0.5
+          min: 0,
+          max: 2,
+          step: 1
         }
       },
     );
 
-    driver.mobile = {
-      components: [
-        {
-          id: "icon",
-          capabilities: [ "onoff" ]
-        },
-        {
-          id: "slider",
-          capabilities: [ "dim" ],
-          options: {
-            showTitle: true
-          }
-        }
-      ]
-    }
+    driver.mobile.components.push({
+      id: "slider",
+      capabilities: [ "dim" ],
+      options: {
+        showTitle: true
+      }
+    });
   }
 
-  if (driver.capabilities.indexOf("button.light") >= 0){
+  if (hasLight){
     driver.capabilitiesOptions = Object.assign(
       driver.capabilitiesOptions || {},
       {

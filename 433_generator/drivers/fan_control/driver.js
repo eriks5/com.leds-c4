@@ -6,11 +6,18 @@ const PT2260 = require('../pt2260/driver');
 const commands = require('./commands');
 
 const ADDRESS_RE = /^[02]{4}2{4}$/;
+
 const COMMAND_STATE_MAP = {
   [commands.STOP]: {state: 0},
-  [commands.LOW]: {state: 1, dim: 0.0},
-  [commands.MED]: {state: 1, dim: 0.5},
-  [commands.HI]: {state: 1, dim: 1.0},
+  [commands.LOW]: {state: 1, dim: 0},
+  [commands.MED]: {state: 1, dim: 1},
+  [commands.HI]: {state: 1, dim: 2},
+};
+
+const DIM_COMMAND_MAP = {
+  0: commands.LOW,
+  1: commands.MED,
+  2: commands.HI,
 };
 
 module.exports = class FanControl extends PT2260 {
@@ -58,16 +65,7 @@ module.exports = class FanControl extends PT2260 {
         command = commands.STOP;
       }
       else if (typeof data.dim !== "undefined") {
-        const dim = Number(data.dim || 0);
-        if (dim >= 0.666) {
-          command = commands.HI;
-        }
-        else if (dim >= 0.333) {
-          command = commands.MED;
-        }
-        else {
-          command = commands.LOW;
-        }
+        command = DIM_COMMAND_MAP[Math.round(data.dim)];
       }
     }
 
@@ -126,19 +124,9 @@ module.exports = class FanControl extends PT2260 {
       set: (device, dim, callback) => {
         this.logger.silly("FanControl.capabilities.dim.set(device, dim)", device, dim);
 
-        if (dim >= 0.666) {
-          dim = 1;
-        }
-        else if (dim >= 0.333) {
-          dim = 0.5;
-        }
-        else {
-          dim = 0;
-        }
-
         const state = {
           state: 1,
-          dim
+          dim: Math.round(dim)
         };
 
         this.logger.debug('Capability:dim -> state:', dim, '=>', state);

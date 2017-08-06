@@ -53,14 +53,6 @@ module.exports = {
       extends: ['generic_dipswitch_switch', 'pt2260'],
       class: 'fan',
       capabilities: ['onoff', 'dim'],
-      // capabilitiesOptions: {    // capabilitiesOptions are not supported by the 433 generator
-      //   dim: {
-      //     decimals: 1,
-      //     min: 0,
-      //     max: 1,
-      //     title: 'deviceClasses.ceiling_fan.capabilitiesOptions.dim.title'
-      //   }
-      // },
       pair: {
         viewOptions: {
           generic_choice: {
@@ -89,12 +81,16 @@ module.exports = {
           },
         }
       }
+    },
+    generic_ceiling_fan_with_light: {
+      extends: ['generic_ceiling_fan'],
+      capabilities: ['onoff', 'dim', 'button.light'],
     }
   },
   devices: {
     ceiling_fan: {
       // logLevel: 2,
-      extends: ['generic_ceiling_fan', 'fan_control', 'fan_triggers', 'fan_actions'],
+      extends: ['generic_ceiling_fan_with_light', 'fan_control', 'fan_triggers', 'fan_actions'],
       name: 'devices.ceiling_fan.name',
       icon: './assets/ceiling_fan/icon.svg',
       images: {

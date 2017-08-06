@@ -117,6 +117,7 @@ const config = {
 			}
 		]
 	}],
+	logLevel: 2,
 	name: 'devices.fan_remote.name',
 	icon: '../../433_generator/assets/fan_remote/icon.svg'
 };

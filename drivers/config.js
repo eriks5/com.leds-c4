@@ -3,7 +3,7 @@
 module.exports = {
 	devices: {
 		ceiling_fan: {
-			capabilities: ['onoff', 'dim'],
+			capabilities: ['onoff', 'dim', 'button.light'],
 			pair: {
 				viewOrder: ['generic_choice',
 					'generic_imitate',
@@ -171,14 +171,6 @@ module.exports = {
 			id: 'ceiling_fan',
 			class: 'fan',
 			signal: 'pt2260',
-			capabilitiesOptions: {
-				dim: {
-					decimals: 1,
-					min: 0,
-					max: 1,
-					title: 'deviceClasses.ceiling_fan.capabilitiesOptions.dim.title'
-				}
-			},
 			driver: '../433_generator/drivers/fan_control/driver.js',
 			triggers: [{
 				id: 'ceiling_fan:received',
@@ -285,6 +277,7 @@ module.exports = {
 					}
 				]
 			}],
+			logLevel: 2,
 			name: 'devices.ceiling_fan.name',
 			icon: '../433_generator/assets/ceiling_fan/icon.svg'
 		},
@@ -405,6 +398,7 @@ module.exports = {
 					}
 				]
 			}],
+			logLevel: 2,
 			name: 'devices.fan_remote.name',
 			icon: '../433_generator/assets/fan_remote/icon.svg'
 		}

@@ -138,6 +138,21 @@ module.exports = class FanControl extends PT2260 {
       }
     };
 
+    exports.capabilities["button.light"] = {
+      set: (device, button, callback) => {
+        this.logger.silly("FanControl.capabilities[button.light].set(device, button)", device, button);
+
+        const state = {
+          command: commands.LIGHT
+        };
+
+        this.logger.debug('Capability:button -> state:', button, '=>', state);
+
+        this.setState(device, state);
+        this.send(device, state, () => callback(null, button))
+      }
+    };
+
     return exports;
   }
 };

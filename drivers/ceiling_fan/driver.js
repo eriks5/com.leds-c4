@@ -1,7 +1,7 @@
 'use strict';
 /* eslint-disable */
 const config = {
-	capabilities: ['onoff', 'dim'],
+	capabilities: ['onoff', 'dim', 'button.light'],
 	pair: {
 		viewOrder: ['generic_choice',
 			'generic_imitate',
@@ -169,14 +169,6 @@ const config = {
 	id: 'ceiling_fan',
 	class: 'fan',
 	signal: 'pt2260',
-	capabilitiesOptions: {
-		dim: {
-			decimals: 1,
-			min: 0,
-			max: 1,
-			title: 'deviceClasses.ceiling_fan.capabilitiesOptions.dim.title'
-		}
-	},
 	driver: '../../433_generator/drivers/fan_control/driver.js',
 	triggers: [{
 		id: 'ceiling_fan:received',
@@ -283,6 +275,7 @@ const config = {
 			}
 		]
 	}],
+	logLevel: 2,
 	name: 'devices.ceiling_fan.name',
 	icon: '../../433_generator/assets/ceiling_fan/icon.svg'
 };

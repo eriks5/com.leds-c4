@@ -1,3 +1,5 @@
 .git
 433_generator/assets/*/images/
+build.js
 env.json
+node_modules/*

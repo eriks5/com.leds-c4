@@ -22,7 +22,8 @@ appConfig.drivers.forEach(driver => {
           title: {
             en: "Speed",
             nl: "Snelheid"
-          }
+          },
+          step: 0.5
         }
       },
     );

@@ -37,7 +37,7 @@ appConfig.drivers.forEach(driver => {
           id: "slider",
           capabilities: [ "dim" ],
           options: {
-            showTitle: [ "dim" ]
+            showTitle: true
           }
         }
       ]
@@ -61,7 +61,7 @@ appConfig.drivers.forEach(driver => {
       id: "button",
       capabilities: [ "button.light" ],
       options: {
-        showTitle: [ "button.light" ]
+        showTitle: true
       }
     });
   }

@@ -142,9 +142,7 @@
               "dim"
             ],
             "options": {
-              "showTitle": [
-                "dim"
-              ]
+              "showTitle": true
             }
           },
           {
@@ -153,9 +151,7 @@
               "button.light"
             ],
             "options": {
-              "showTitle": [
-                "button.light"
-              ]
+              "showTitle": true
             }
           }
         ]

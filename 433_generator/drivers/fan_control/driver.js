@@ -126,9 +126,19 @@ module.exports = class FanControl extends PT2260 {
       set: (device, dim, callback) => {
         this.logger.silly("FanControl.capabilities.dim.set(device, dim)", device, dim);
 
+        if (dim >= 0.666) {
+          dim = 1;
+        }
+        else if (dim >= 0.333) {
+          dim = 0.5;
+        }
+        else {
+          dim = 0;
+        }
+
         const state = {
-          state: this.getState(device).state || 0,
-          dim: dim
+          state: 1,
+          dim
         };
 
         this.logger.debug('Capability:dim -> state:', dim, '=>', state);

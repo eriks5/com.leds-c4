@@ -20,6 +20,16 @@ const DIM_COMMAND_MAP = {
   2: commands.HI,
 };
 
+function getOnoff(state){
+  // Get onoff value from state object, coerced to a boolean
+  return Boolean(Number(state.state));
+}
+
+function getDim(state){
+  // Get dim value from state object, coerced to a valid integer 0 < dim <= 3
+  return Math.min(Math.max(Math.round(state.dim || 1), 1), 3);
+}
+
 module.exports = class FanControl extends PT2260 {
   constructor(config) {
     super(config);
@@ -60,12 +70,12 @@ module.exports = class FanControl extends PT2260 {
 
     let command = null;
     if (typeof data.state !== "undefined"){
-      const state = Number(data.state);
+      const state = getOnoff(data);
       if (!state){
         command = commands.STOP;
       }
       else if (typeof data.dim !== "undefined") {
-        command = DIM_COMMAND_MAP[Math.round(data.dim)];
+        command = DIM_COMMAND_MAP[getDim(data)];
       }
     }
 
@@ -88,11 +98,15 @@ module.exports = class FanControl extends PT2260 {
 
   updateRealtime(device, state, oldState) {
     this.logger.silly("FanControl:updateRealtime(device, state, oldState)", device, state, oldState);
-    if (Boolean(Number(state.state)) !== Boolean(Number(oldState.state))) {
-      this.realtime(device, 'onoff', Boolean(Number(state.state)));
+
+    const onoff = getOnoff(state);
+    if (onoff !== getOnoff(oldState)) {
+      this.realtime(device, 'onoff', onoff);
     }
-    if (Number(state.dim) !== Number(oldState.dim)) {
-      this.realtime(device, 'dim', Number(state.dim));
+
+    const dim = getDim(state);
+    if (dim !== getDim(oldState)) {
+      this.realtime(device, 'dim', dim);
     }
   }
 
@@ -103,13 +117,13 @@ module.exports = class FanControl extends PT2260 {
     exports.capabilities = exports.capabilities || {};
 
     exports.capabilities.onoff = {
-      get: (device, callback) => callback(null, Boolean(Number(this.getState(device).state))),
+      get: (device, callback) => callback(null, getOnoff(this.getState(device))),
       set: (device, onoff, callback) => {
         this.logger.silly("FanControl.capabilities.onoff.set(device, onoff)", device, onoff);
 
         const state = {
           state: onoff ? 1 : 0,
-          dim: this.getState(device).dim || 0
+          dim: getDim(this.getState(device))
         };
 
         this.logger.debug('Capability:onoff -> state:', onoff, '=>', state);
@@ -120,13 +134,13 @@ module.exports = class FanControl extends PT2260 {
     };
 
     exports.capabilities.dim = {
-      get: (device, callback) => callback(null, Number(this.getState(device).dim)),
+      get: (device, callback) => callback(null, getDim(this.getState(device))),
       set: (device, dim, callback) => {
         this.logger.silly("FanControl.capabilities.dim.set(device, dim)", device, dim);
 
         const state = {
           state: 1,
-          dim: Math.round(dim)
+          dim: getDim({dim})
         };
 
         this.logger.debug('Capability:dim -> state:', dim, '=>', state);

@@ -26,8 +26,8 @@ function getOnoff(state){
 }
 
 function getDim(state){
-  // Get dim value from state object, coerced to a valid integer 0 < dim <= 3
-  return Math.min(Math.max(Math.round(state.dim || 1), 1), 3);
+  // Get dim value from state object, coerced to a valid integer 0 .. 2
+  return Math.min(Math.max(Math.round(state.dim || 0), 0), 2);
 }
 
 module.exports = class FanControl extends PT2260 {

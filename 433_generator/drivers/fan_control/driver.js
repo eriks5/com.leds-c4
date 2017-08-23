@@ -154,7 +154,10 @@ module.exports = class FanControl extends PT2260 {
       set: (device, button, callback) => {
         this.logger.silly("FanControl.capabilities[button.light].set(device, button)", device, button);
 
+        const currentState = this.getState(device);
         const state = {
+          state: getOnoff(currentState) ? 1 : 0,
+          dim: getDim(currentState),
           command: commands.LIGHT
         };
 
